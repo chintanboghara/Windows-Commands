@@ -1,162 +1,189 @@
+# Windows Commands
+
+### Table of Contents
+
+1. [File and Directory Management](#file-and-directory-management)
+2. [System Information and Management](#system-information-and-management)
+3. [Networking](#networking)
+4. [Disk and Storage Management](#disk-and-storage-management)
+5. [User and Group Management](#user-and-group-management)
+6. [Process and Service Management](#process-and-service-management)
+7. [Advanced Commands](#advanced-commands)
+8. [Scripting and Automation](#scripting-and-automation)
+9. [Miscellaneous](#miscellaneous)
+
 ## File and Directory Management
 
-| Command               | Description                                      | Example                                         |
-|-----------------------|--------------------------------------------------|-------------------------------------------------|
-| `dir`                 | List files and directories in the current folder | `dir /s` lists all files and subdirectories     |
-| `cd <directory>`      | Change directory                                 | `cd Documents` goes to the Documents folder     |
-| `cd ..`               | Move up one directory level                     | `cd ..` moves up one level                      |
-| `mkdir <directory>`   | Create a new directory                          | `mkdir NewFolder` creates NewFolder             |
-| `rmdir <directory>`   | Remove a directory (must be empty)              | `rmdir OldFolder` deletes OldFolder if empty    |
-| `del <file>`          | Delete a file                                   | `del unwanted.txt` deletes unwanted.txt         |
-| `copy <source> <dest>`| Copy a file to another location                 | `copy file.txt D:\Backup` copies to D:\Backup   |
-| `move <source> <dest>`| Move a file to another location                 | `move file.txt D:\Archive` moves to D:\Archive  |
-| `ren <old> <new>`     | Rename a file or directory                      | `ren oldname.txt newname.txt` renames the file  |
-| `type <file>`         | Display the contents of a file                  | `type notes.txt` shows content of notes.txt     |
-| `attrib`              | Display or change file attributes               | `attrib +r file.txt` makes file.txt read-only   |
-| `tree`                | Display directory structure as a tree           | `tree /f` shows all files and folders           |
-| `robocopy <source> <dest>` | Advanced file copying tool                  | `robocopy C:\Source D:\Dest /e` copies subdirs  |
-| `mklink <link> <target>` | Create symbolic links (symlinks)             | `mklink /d C:\Link D:\Original` creates a link  |
-| `xcopy <source> <dest>`| Copy files and directories with more options   | `xcopy C:\Source D:\Dest /s /e` copies all      |
+| **Command**             | **Description**                                  | **Example**                                      |
+|-------------------------|--------------------------------------------------|--------------------------------------------------|
+| `dir`                   | Lists files and directories in the current folder | `dir /s` lists all files and subdirectories      |
+| `cd <directory>`        | Changes the current directory                    | `cd Documents` switches to the Documents folder  |
+| `cd ..`                 | Moves up one directory level                     | `cd ..` navigates up one level                   |
+| `mkdir <directory>`     | Creates a new directory                          | `mkdir NewFolder` creates a folder named NewFolder |
+| `rmdir <directory>`     | Deletes an empty directory                       | `rmdir OldFolder` removes OldFolder if empty     |
+| `del <file>`            | Deletes a specified file                         | `del unwanted.txt` deletes unwanted.txt          |
+| `copy <source> <dest>`  | Copies a file to another location                | `copy file.txt D:\Backup` copies to D:\Backup    |
+| `move <source> <dest>`  | Moves a file to another location                 | `move file.txt D:\Archive` moves to D:\Archive   |
+| `ren <old> <new>`       | Renames a file or directory                      | `ren oldname.txt newname.txt` renames the file   |
+| `type <file>`           | Displays the contents of a text file             | `type notes.txt` shows the content of notes.txt  |
+| `attrib`                | Displays or modifies file attributes             | `attrib +r file.txt` sets file.txt to read-only  |
+| `tree`                  | Shows directory structure in a tree format       | `tree /f` displays all files and folders         |
+| `robocopy <source> <dest>` | Advanced tool for copying files and directories | `robocopy C:\Source D:\Dest /e` copies subdirectories |
+| `mklink <link> <target>` | Creates a symbolic link                         | `mklink /d C:\Link D:\Original` creates a directory link |
+| `xcopy <source> <dest>` | Copies files and directories with advanced options | `xcopy C:\Source D:\Dest /s /e` copies all, including empty folders |
+| `fc <file1> <file2>`    | Compares two files and shows differences         | `fc file1.txt file2.txt` displays differences    |
+| `comp <file1> <file2>`  | Compares two files byte by byte                  | `comp file1.txt file2.txt` compares the files    |
+| `find <string> <file>`  | Searches for a string within a file              | `find "error" log.txt` finds "error" in log.txt  |
 
 ## System Information and Management
 
-| Command               | Description                                      | Example                                         |
-|-----------------------|--------------------------------------------------|-------------------------------------------------|
-| `systeminfo`          | Display detailed system information             | `systeminfo | find "OS Name"` finds the OS name  |
-| `hostname`            | Display the computer name                       | `hostname` shows the computer name              |
-| `ver`                 | Display the Windows version                     | `ver` shows the Windows version                 |
-| `tasklist`            | List all running processes                      | `tasklist /fi "imagename eq chrome.exe"` lists Chrome processes |
-| `taskkill /PID <id>`  | Terminate a process by its PID                  | `taskkill /PID 1234` kills process with PID 1234|
-| `taskkill /IM <name>` | Terminate a process by its name                 | `taskkill /IM notepad.exe` kills Notepad        |
-| `shutdown /s`         | Shut down the computer                          | `shutdown /s /t 60` shuts down in 60 seconds    |
-| `shutdown /r`         | Restart the computer                            | `shutdown /r /t 0` restarts immediately         |
-| `shutdown /l`         | Log off the current user                        | `shutdown /l` logs off the current user         |
-| `wmic`                | Windows Management Instrumentation Command-line | `wmic cpu get name` gets the CPU name           |
-| `msinfo32`            | Open System Information GUI                     | `msinfo32` opens the System Information window  |
-| `sfc /scannow`        | Scan and repair system files                    | `sfc /scannow` starts the scan                  |
-| `chkdsk /f`           | Check and fix disk errors                       | `chkdsk C: /f` checks and fixes the C: drive    |
-| `powercfg /energy`    | Generate a power efficiency report              | `powercfg /energy` creates a report             |
-| `winsat`              | Run Windows System Assessment Tool              | `winsat formal` runs a full assessment          |
-| `logman`              | Manage performance monitoring logs              | `logman query` lists all data collectors        |
-| `driverquery`         | List all installed drivers                      | `driverquery /v` shows detailed driver info     |
+| **Command**             | **Description**                                  | **Example**                                      |
+|-------------------------|--------------------------------------------------|--------------------------------------------------|
+| `systeminfo`            | Displays detailed system configuration info      | `systeminfo | find "OS Name"` shows the OS name   |
+| `hostname`              | Shows the computer's hostname                    | `hostname` displays the computer name            |
+| `ver`                   | Displays the Windows version                     | `ver` shows the current Windows version          |
+| `tasklist`              | Lists all running processes                      | `tasklist /fi "imagename eq chrome.exe"` filters for Chrome |
+| `taskkill /PID <id>`    | Terminates a process by its process ID (PID)     | `taskkill /PID 1234` ends process with PID 1234  |
+| `taskkill /IM <name>`   | Terminates a process by its image name           | `taskkill /IM notepad.exe` stops Notepad         |
+| `shutdown /s`           | Shuts down the computer                          | `shutdown /s /t 60` shuts down in 60 seconds     |
+| `shutdown /r`           | Restarts the computer                            | `shutdown /r /t 0` restarts immediately          |
+| `shutdown /l`           | Logs off the current user                        | `shutdown /l` logs off the current session       |
+| `wmic`                  | Accesses Windows Management Instrumentation      | `wmic cpu get name` retrieves the CPU name       |
+| `msinfo32`              | Opens the System Information GUI                 | `msinfo32` launches the System Information window |
+| `sfc /scannow`          | Scans and repairs protected system files         | `sfc /scannow` initiates the scan and repair     |
+| `chkdsk /f`             | Checks and fixes disk errors                     | `chkdsk C: /f` repairs errors on the C: drive    |
+| `powercfg /energy`      | Generates a power efficiency diagnostic report   | `powercfg /energy` creates an energy report      |
+| `winsat`                | Runs the Windows System Assessment Tool          | `winsat formal` performs a full system assessment |
+| `logman`                | Manages performance monitoring data collectors   | `logman query` lists all active data collectors  |
+| `driverquery`           | Lists all installed device drivers               | `driverquery /v` shows detailed driver info      |
 
 ## Networking
 
-| Command               | Description                                      | Example                                         |
-|-----------------------|--------------------------------------------------|-------------------------------------------------|
-| `ipconfig`            | Display IP configuration                        | `ipconfig /all` shows detailed IP info          |
-| `ipconfig /release`   | Release the IP address                          | `ipconfig /release` releases the current IP     |
-| `ipconfig /renew`     | Renew the IP address                            | `ipconfig /renew` gets a new IP                 |
-| `ping <host>`         | Ping a host to check connectivity               | `ping google.com` checks connectivity to Google |
-| `tracert <host>`      | Trace the route to a host                       | `tracert google.com` shows the path to Google   |
-| `netstat`             | Display network connections                     | `netstat -an` shows all connections and ports   |
-| `nslookup <domain>`   | Look up DNS information for a domain            | `nslookup google.com` shows Google's IPs        |
-| `arp -a`              | Display the ARP table                           | `arp -a` lists all cached ARP entries           |
-| `netsh`               | Configure network settings                      | `netsh interface ip set address "Local Area Connection" static 192.168.1.100 255.255.255.0 192.168.1.1` sets static IP |
-| `netstat -ano`        | Display all active connections with PIDs        | `netstat -ano | findstr :80` finds port 80 connections |
-| `route print`         | Display the routing table                       | `route print` shows the current routes          |
-| `telnet <host> <port>`| Test connectivity to a specific port            | `telnet google.com 80` checks if port 80 is open|
-| `pathping <host>`     | Combines `ping` and `tracert` functionality     | `pathping google.com` shows packet loss and latency |
-| `netsh wlan show profiles` | View saved Wi-Fi profiles                | `netsh wlan show profiles` lists saved Wi-Fi networks |
-| `netsh wlan export profile` | Export Wi-Fi profiles to a file          | `netsh wlan export profile name="MyWiFi" folder="C:\Backup"` exports profile |
-| `getmac`              | Display MAC addresses                           | `getmac /v` shows detailed MAC info             |
+| **Command**             | **Description**                                  | **Example**                                      |
+|-------------------------|--------------------------------------------------|--------------------------------------------------|
+| `ipconfig`              | Displays IP configuration details                | `ipconfig /all` shows full IP configuration      |
+| `ipconfig /release`     | Releases the current IP address                  | `ipconfig /release` releases the IP address      |
+| `ipconfig /renew`       | Renews the IP address                            | `ipconfig /renew` requests a new IP address      |
+| `ping <host>`           | Tests connectivity to a host                     | `ping google.com` pings Google to check connectivity |
+| `tracert <host>`        | Traces the route packets take to a host          | `tracert google.com` traces the path to Google   |
+| `netstat`               | Displays active network connections              | `netstat -an` lists all connections and ports    |
+| `nslookup <domain>`     | Queries DNS for domain information               | `nslookup google.com` retrieves Google's IPs     |
+| `arp -a`                | Shows the Address Resolution Protocol table      | `arp -a` displays cached ARP entries             |
+| `netsh`                 | Configures network settings                      | `netsh interface ip set address "Local Area Connection" static 192.168.1.100 255.255.255.0 192.168.1.1` sets a static IP |
+| `netstat -ano`          | Shows connections with process IDs               | `netstat -ano | findstr :80` filters for port 80  |
+| `route print`           | Displays the IP routing table                    | `route print` shows current routing info         |
+| `telnet <host> <port>`  | Tests connectivity to a specific port            | `telnet google.com 80` tests port 80 on Google   |
+| `pathping <host>`       | Combines ping and tracert for network analysis   | `pathping google.com` shows latency and loss     |
+| `netsh wlan show profiles` | Lists saved Wi-Fi profiles                    | `netsh wlan show profiles` displays Wi-Fi networks |
+| `netsh wlan export profile` | Exports Wi-Fi profiles to files              | `netsh wlan export profile name="MyWiFi" folder="C:\Backup"` exports MyWiFi profile |
+| `getmac`                | Displays the system's MAC addresses              | `getmac /v` shows detailed MAC information       |
+| `nbtstat -a <host>`     | Shows NetBIOS info for a specified host          | `nbtstat -a remotePC` displays NetBIOS details   |
+| `net view`              | Lists computers in the network                   | `net view` shows all visible network computers   |
 
 ## Disk and Storage Management
 
-| Command               | Description                                      | Example                                         |
-|-----------------------|--------------------------------------------------|-------------------------------------------------|
-| `chkdsk`              | Check and repair disk errors                    | `chkdsk C: /r` locates bad sectors and recovers info |
-| `format <drive>`      | Format a disk                                   | `format D: /fs:NTFS` formats D: to NTFS         |
-| `diskpart`            | Open the disk partitioning tool                 | `diskpart` then `list disk` to list all disks   |
-| `defrag`              | Defragment a disk                               | `defrag C: /U /V` defrags C: with progress      |
-| `vssadmin list shadows` | List volume shadow copies                    | `vssadmin list shadows /for=C:` lists shadows for C: |
-| `fsutil`              | File system utility for advanced operations     | `fsutil fsinfo drives` lists all drives         |
-| `bcdedit`             | Edit boot configuration data                    | `bcdedit /enum` lists all boot entries          |
-| `diskraid`            | Manage RAID configurations                      | `diskraid /s` shows RAID status                 |
-| `storage spaces`      | Manage Storage Spaces (virtual disks)           | `Get-StoragePool` in PowerShell lists pools     |
-| `diskmgmt.msc`        | Open Disk Management GUI                        | `diskmgmt.msc` opens Disk Management            |
+| **Command**             | **Description**                                  | **Example**                                      |
+|-------------------------|--------------------------------------------------|--------------------------------------------------|
+| `chkdsk`                | Checks and repairs disk errors                   | `chkdsk C: /r` repairs and recovers data on C:   |
+| `format <drive>`        | Formats a specified drive                        | `format D: /fs:NTFS` formats D: to NTFS          |
+| `diskpart`              | Launches the disk partitioning utility           | `diskpart` then `list disk` to list disks        |
+| `defrag`                | Defragments a disk to improve performance        | `defrag C: /U /V` defrags C: with verbose output |
+| `vssadmin list shadows` | Lists all volume shadow copies                   | `vssadmin list shadows /for=C:` shows C: shadows |
+| `fsutil`                | Performs advanced file system operations         | `fsutil fsinfo drives` lists all available drives |
+| `bcdedit`               | Edits the Boot Configuration Data                | `bcdedit /enum` lists all boot entries           |
+| `diskraid`              | Manages RAID configurations                      | `diskraid /s` displays RAID status               |
+| `diskmgmt.msc`          | Opens the Disk Management GUI                    | `diskmgmt.msc` launches Disk Management          |
+| `mountvol`              | Manages volume mount points                      | `mountvol D:\MountPoint /L` lists mount points   |
+| `vol`                   | Displays volume label and serial number          | `vol C:` shows C: drive info                     |
 
 ## User and Group Management
 
-| Command               | Description                                      | Example                                         |
-|-----------------------|--------------------------------------------------|-------------------------------------------------|
-| `net user`            | List user accounts                              | `net user` shows all users                      |
-| `net user <username>` | Display information about a user                | `net user John` shows John's details            |
-| `net user <username> *`| Change a user's password                       | `net user John *` prompts for a new password    |
-| `net localgroup`      | List local groups                               | `net localgroup` shows all local groups         |
-| `net localgroup <group> <user> /add` | Add a user to a group          | `net localgroup Administrators John /add` adds John to Admins |
-| `net localgroup <group> <user> /del` | Remove a user from a group     | `net localgroup Administrators John /del` removes John from Admins |
-| `whoami`              | Display the current username                    | `whoami` shows the logged-in user               |
-| `gpupdate /force`     | Force update Group Policy settings              | `gpupdate /force` applies policies immediately  |
-| `lusrmgr.msc`         | Open Local Users and Groups GUI                 | `lusrmgr.msc` opens the GUI                     |
-| `net accounts`        | View or modify password and logon policies      | `net accounts /minpwlen:8` sets min password length to 8 |
-| `net group`           | Manage domain groups (in domain environments)   | `net group "Domain Admins" /domain` lists domain admins |
+| **Command**             | **Description**                                  | **Example**                                      |
+|-------------------------|--------------------------------------------------|--------------------------------------------------|
+| `net user`              | Lists all user accounts                          | `net user` displays all local users             |
+| `net user <username>`   | Shows details about a specific user              | `net user John` displays John's account info     |
+| `net user <username> *` | Changes a user’s password                        | `net user John *` prompts for a new password     |
+| `net localgroup`        | Lists all local groups                           | `net localgroup` shows all local groups          |
+| `net localgroup <group> <user> /add` | Adds a user to a group            | `net localgroup Administrators John /add` adds John to Admins |
+| `net localgroup <group> <user> /del` | Removes a user from a group       | `net localgroup Administrators John /del` removes John |
+| `whoami`                | Displays the current logged-in user              | `whoami` shows the current username              |
+| `gpupdate /force`       | Forces an immediate Group Policy update          | `gpupdate /force` applies policies now           |
+| `lusrmgr.msc`           | Opens the Local Users and Groups GUI             | `lusrmgr.msc` launches the management GUI        |
+| `net accounts`          | Manages password and logon policies              | `net accounts /minpwlen:8` sets min password length |
+| `net group`             | Manages domain groups (domain environments)      | `net group "Domain Admins" /domain` lists admins |
 
 ## Process and Service Management
 
-| Command               | Description                                      | Example                                         |
-|-----------------------|--------------------------------------------------|-------------------------------------------------|
-| `sc query`            | List all installed services                     | `sc query` shows all services                   |
-| `sc start <service>`  | Start a service                                 | `sc start wuauserv` starts Windows Update service |
-| `sc stop <service>`   | Stop a service                                  | `sc stop wuauserv` stops Windows Update service |
-| `sc config <service>` | Configure a service                             | `sc config wuauserv start= auto` sets to auto start |
-| `wmic process`        | Manage processes using WMIC                     | `wmic process where name="notepad.exe" delete` terminates Notepad |
-| `start <program>`     | Start a program                                 | `start notepad` opens Notepad                   |
-| `tasklist /svc`       | List services associated with processes         | `tasklist /svc` shows services for each process |
-| `pslist`              | List processes (Sysinternals tool)              | `pslist` lists all processes                    |
-| `pssuspend`           | Suspend a process (Sysinternals tool)           | `pssuspend notepad` suspends Notepad            |
-| `psexec`              | Execute processes remotely (Sysinternals tool)  | `psexec \\remotePC cmd` opens remote command prompt |
-| `services.msc`        | Open Services GUI                               | `services.msc` opens the Services window        |
+| **Command**             | **Description**                                  | **Example**                                      |
+|-------------------------|--------------------------------------------------|--------------------------------------------------|
+| `sc query`              | Lists all installed services                     | `sc query` displays all services                 |
+| `sc start <service>`    | Starts a specified service                       | `sc start wuauserv` starts Windows Update        |
+| `sc stop <service>`     | Stops a specified service                        | `sc stop wuauserv` stops Windows Update          |
+| `sc config <service>`   | Configures service startup settings              | `sc config wuauserv start= auto` sets to auto    |
+| `wmic process`          | Manages processes via WMIC                       | `wmic process where name="notepad.exe" delete` ends Notepad |
+| `start <program>`       | Launches a program                               | `start notepad` opens Notepad                    |
+| `tasklist /svc`         | Lists services tied to processes                 | `tasklist /svc` shows process-service mappings   |
+| `pslist`                | Lists processes (Sysinternals tool)              | `pslist` displays all running processes          |
+| `pssuspend`             | Suspends a process (Sysinternals tool)           | `pssuspend notepad` pauses Notepad               |
+| `psexec`                | Runs processes remotely (Sysinternals tool)      | `psexec \\remotePC cmd` opens a remote CMD       |
+| `services.msc`          | Opens the Services GUI                           | `services.msc` launches the Services window      |
+| `taskmgr`               | Opens the Task Manager                           | `taskmgr` launches Task Manager                  |
 
 ## Advanced Commands
 
-| Command               | Description                                      | Example                                         |
-|-----------------------|--------------------------------------------------|-------------------------------------------------|
-| `regedit`             | Open the Windows Registry Editor                | `regedit` opens the Registry Editor             |
-| `schtasks`            | Schedule tasks                                  | `schtasks /create /tn "MyTask" /tr "C:\myprogram.exe" /sc daily /st 09:00` creates a daily task |
-| `bcdedit`             | Edit boot configuration data                    | `bcdedit /set {default} bootmenupolicy legacy` sets legacy boot menu |
-| `dism`                | Deployment Image Servicing and Management tool  | `dism /online /cleanup-image /restorehealth` repairs system image |
-| `powershell`          | Open PowerShell                                 | `powershell` opens PowerShell                   |
-| `clip`                | Copy command output to clipboard                | `dir | clip` copies directory listing to clipboard |
-| `for /f`              | Loop through command output                     | `for /f "tokens=*" %i in ('dir /b') do echo %i` lists each file |
-| `findstr`             | Search for strings in files or output           | `findstr /i "error" log.txt` finds "error" in log.txt |
-| `wevtutil`            | Manage Windows Event Logs                       | `wevtutil el` lists all event logs              |
-| `auditpol`            | Configure auditing policies                     | `auditpol /get /category:*` shows audit policies|
-| `certutil`            | Manage certificates and certificate stores      | `certutil -store My` lists personal certificates|
-| `icacls`              | Modify file and folder permissions              | `icacls C:\folder /grant Users:F` grants full control to Users |
-| `takeown`             | Take ownership of files or folders              | `takeown /f C:\folder` takes ownership of folder|
-| `robocopy /mir`       | Mirror a directory (sync source and destination)| `robocopy C:\Source D:\Dest /mir` syncs Source to Dest |
-| `wsl`                 | Launch Windows Subsystem for Linux              | `wsl --list` lists installed distributions      |
-| `eventvwr.msc`        | Open Event Viewer GUI                           | `eventvwr.msc` opens Event Viewer               |
+| **Command**             | **Description**                                  | **Example**                                      |
+|-------------------------|--------------------------------------------------|--------------------------------------------------|
+| `regedit`               | Opens the Windows Registry Editor                | `regedit` launches the Registry Editor           |
+| `schtasks`              | Schedules tasks to run at specified times        | `schtasks /create /tn "MyTask" /tr "C:\myprogram.exe" /sc daily /st 09:00` sets a daily task |
+| `bcdedit`               | Modifies Boot Configuration Data                 | `bcdedit /set {default} bootmenupolicy legacy` sets legacy boot |
+| `dism`                  | Manages and services Windows images              | `dism /online /cleanup-image /restorehealth` repairs the system |
+| `powershell`            | Launches PowerShell                              | `powershell` opens a PowerShell session          |
+| `clip`                  | Copies command output to the clipboard           | `dir | clip` copies directory listing to clipboard |
+| `for /f`                | Loops through command output                     | `for /f "tokens=*" %i in ('dir /b') do echo %i` echoes each file |
+| `findstr`               | Searches for strings in files or output          | `findstr /i "error" log.txt` finds "error" case-insensitively |
+| `wevtutil`              | Manages Windows Event Logs                       | `wevtutil el` lists all event logs               |
+| `auditpol`              | Configures system auditing policies              | `auditpol /get /category:*` shows audit settings |
+| `certutil`              | Manages certificates and certificate stores      | `certutil -store My` lists personal certificates |
+| `icacls`                | Modifies file and folder permissions             | `icacls C:\folder /grant Users:F` grants full control |
+| `takeown`               | Takes ownership of a file or folder              | `takeown /f C:\folder` claims ownership          |
+| `robocopy /mir`         | Mirrors directories (syncs source to destination)| `robocopy C:\Source D:\Dest /mir` syncs directories |
+| `wsl`                   | Launches Windows Subsystem for Linux             | `wsl --list` lists installed Linux distributions |
+| `eventvwr.msc`          | Opens the Event Viewer GUI                       | `eventvwr.msc` launches Event Viewer             |
+| `msconfig`              | Opens System Configuration utility               | `msconfig` launches the configuration tool       |
+| `secpol.msc`            | Opens Local Security Policy Editor               | `secpol.msc` launches the policy editor          |
 
 ## Scripting and Automation
 
-| Command               | Description                                      | Example                                         |
-|-----------------------|--------------------------------------------------|-------------------------------------------------|
-| `for`                 | Loop through files or commands                  | `for %i in (*.txt) do echo %i` lists all .txt files |
-| `if`                  | Conditional execution                           | `if exist file.txt (echo exists) else (echo does not exist)` checks file existence |
-| `set`                 | Set or display environment variables            | `set PATH=%PATH%;C:\newpath` adds to PATH       |
-| `call`                | Call a batch script from another script         | `call otherscript.bat` runs otherscript.bat     |
-| `goto`                | Jump to a labeled section in a script           | `goto :label` jumps to :label                   |
-| `choice`              | Prompt user for input in a batch script         | `choice /c yn /m "Yes or No?"` asks for Y or N  |
-| `timeout`             | Pause execution for a specified time            | `timeout /t 10` waits for 10 seconds            |
-| `start`               | Start a program or script in a new window       | `start "" "C:\program.exe"` runs in new window  |
-| `powershell -command` | Run a PowerShell command from CMD               | `powershell -command "Get-Process"` lists processes |
-| `wscript`             | Run a VBScript file                             | `wscript script.vbs` executes script.vbs        |
-| `echo`                | Display messages or turn command echoing on/off | `echo Hello World` prints "Hello World"         |
+| **Command**             | **Description**                                  | **Example**                                      |
+|-------------------------|--------------------------------------------------|--------------------------------------------------|
+| `for`                   | Loops through files or commands                  | `for %i in (*.txt) do echo %i` lists .txt files  |
+| `if`                    | Executes commands conditionally                  | `if exist file.txt (echo exists) else (echo missing)` checks file |
+| `set`                   | Sets or displays environment variables           | `set PATH=%PATH%;C:\newpath` appends to PATH     |
+| `call`                  | Runs another batch script                        | `call otherscript.bat` executes otherscript.bat  |
+| `goto`                  | Jumps to a labeled section in a script           | `goto :label` moves to the :label section        |
+| `choice`                | Prompts user for input in a script               | `choice /c yn /m "Yes or No?"` asks for Y/N      |
+| `timeout`               | Pauses execution for a set time                  | `timeout /t 10` waits 10 seconds                 |
+| `start`                 | Opens a program or script in a new window        | `start "" "C:\program.exe"` runs in a new window |
+| `powershell -command`   | Runs a PowerShell command from CMD               | `powershell -command "Get-Process"` lists processes |
+| `wscript`               | Executes a VBScript file                         | `wscript script.vbs` runs script.vbs             |
+| `echo`                  | Displays messages or controls echoing            | `echo Hello World` prints "Hello World"          |
+| `assoc`                 | Manages file extension associations              | `assoc .txt` shows the .txt file association     |
+| `ftype`                 | Manages file type associations                   | `ftype txtfile` shows the command for txtfile    |
 
 ## Miscellaneous
 
-| Command               | Description                                      | Example                                         |
-|-----------------------|--------------------------------------------------|-------------------------------------------------|
-| `cls`                 | Clear the command prompt screen                 | `cls` clears the screen                         |
-| `exit`                | Close the command prompt                        | `exit` closes the command prompt                |
-| `help`                | Display a list of available commands            | `help` lists available commands                 |
-| `<command> /?`        | Display help for a specific command             | `dir /?` shows help for `dir`                   |
-| `echo <text>`         | Display a message                               | `echo Hello` prints "Hello"                     |
-| `set`                 | Display or set environment variables            | `set` lists all environment variables           |
-| `time`                | Display or set the system time                  | `time /t` shows the current time                |
-| `date`                | Display or set the system date                  | `date /t` shows the current date                |
-| `color`               | Change the command prompt text and background   | `color 0a` sets black background, green text    |
-| `title`               | Set the title of the command prompt window      | `title My Prompt` sets the title                |
-| `prompt`              | Change the command prompt string                | `prompt $P$G` sets prompt to directory >        |
+| **Command**             | **Description**                                  | **Example**                                      |
+|-------------------------|--------------------------------------------------|--------------------------------------------------|
+| `cls`                   | Clears the Command Prompt screen                 | `cls` clears the current display                 |
+| `exit`                  | Closes the Command Prompt window                 | `exit` terminates the session                    |
+| `help`                  | Lists available commands                         | `help` displays a command list                   |
+| `<command> /?`          | Shows help for a specific command                | `dir /?` provides detailed dir command help      |
+| `echo <text>`           | Displays a specified message                     | `echo Hello` prints "Hello"                      |
+| `set`                   | Shows or sets environment variables              | `set` lists all environment variables            |
+| `time`                  | Displays or sets the system time                 | `time /t` shows the current time                 |
+| `date`                  | Displays or sets the system date                 | `date /t` shows the current date                 |
+| `color`                 | Changes the text and background colors           | `color 0a` sets black background, green text     |
+| `title`                 | Sets the Command Prompt window title             | `title My Prompt` sets the window title          |
+| `prompt`                | Customizes the Command Prompt string             | `prompt $P$G` shows current directory >          |
+| `mode`                  | Configures console settings (e.g., size)         | `mode con cols=80 lines=25` sets window size     |
+| `more <file>`           | Displays file contents one page at a time        | `more log.txt` pages through log.txt             |
